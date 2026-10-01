@@ -4,6 +4,7 @@ import { AppService } from './app.service.js';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module.js';
+import { AuthModule } from './auth/auth.module.js';
 
 @Module({
   imports: [ // Configuración de variables de entorno
@@ -32,7 +33,9 @@ import { UserModule } from './user/user.module.js';
       inject: [ConfigService],
     }),
 
-    UserModule
+    UserModule,
+
+    AuthModule
    ],
   controllers: [AppController],
   providers: [AppService],
